@@ -24,12 +24,3 @@ html
 							textarea.form-control(name="description" placeholder="introduce la Descripcion")
 							br
 							input.form-control(type="submit" value="Enviar" class="btn-personalizado")
-
-
-	section 
-    .container-fluid
-			.row
-        each item in producto
-          .col-xs-12.col-md-12
-            img.img-responsive(src="${item.img}")
-            li Nombre: #{item.nombre}

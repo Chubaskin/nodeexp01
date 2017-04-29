@@ -1,14 +1,15 @@
 const Producto = require('../models/product');
+const cloudinary = require('cloudinary');
 
 exports.init = (req, resp) => {
   // resp.send('Hola mundo desde rutas y controladores').end();
   Producto.find((err, respuesta) => {
     if (err)  console.log(err)
     else {
-      resp.render('index',{ producto: respuesta});
+      resp.render('index', {producto : respuesta});
     }
   });
-  resp.render('index')
+
 }
 
 exports.admin = (req, resp) => {
@@ -16,18 +17,26 @@ exports.admin = (req, resp) => {
 }
 
 exports.create = (req, resp) => {
-  console.log('body:', req.body);
+  // console.log('body:', req.files.fileimage.path);
 
-  let data = new Producto({
-    nombre: req.fields.name,
-    precio: req.fields.price,
-    descripcion: req.fields.description,
-    fecha: new Date()
-  })  // Producto
+  cloudinary.uploader.upload(req.files.fileimage.path, result => {
+      let data = new Producto({
+        nombre: req.fields.name,
+        precio: req.fields.price,
+        descripcion: req.fields.description,
+        fecha: new Date()
+      })  // Producto
 
-  data.save((err,resp)=>{
-    if (err)  console.log(err)
-    else
-    resp.redirect('/');
-  })
+      data.save((err,respuesta)=>{
+        if (err)  console.log(err)
+        else {
+          console.log('Todo OK!')
+          resp.redirect('/');
+        }
+
+      })
+
+  });
+
+
 }

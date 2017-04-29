@@ -18,9 +18,9 @@ app.use( formidable({
 // Uso de Jade
 app.set('views', './views');
 app.set('view engine', 'jade');
-// Uso de bodyParser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+    // Uso de bodyParser
+    // app.use(bodyParser.json());
+    // app.use(bodyParser.urlencoded({extended: true}));
 // "set" cambia la configuracion global de express
 // "use" indica módulos externos a usar
 
