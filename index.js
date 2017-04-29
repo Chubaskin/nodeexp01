@@ -1,11 +1,19 @@
 const express = require('express');
 const app = express();
 const Rutas = require('./routes/rutas');
-const bodyParser = require('body-parser');
 const jade = require('jade');
 const mongoose = require('mongoose');
+const formidable = require('express-formidable');
+const cloudinary = require('cloudinary');
 
 let port = process.env.PORT || 3000;
+
+app.use( formidable({
+  encoding: 'utf-8',
+  uploadDir: './static/uploads',
+  keepExtensions: true,
+  multiples: true
+}));
 
 // Uso de Jade
 app.set('views', './views');
@@ -15,6 +23,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 // "set" cambia la configuracion global de express
 // "use" indica módulos externos a usar
+
+cloudinary.config({
+  cloud_name: 'chubasco',
+  api_key: '939127124223932',
+  api_secret: 'T7NrQPu3BoisxEvOONpBsOyH9ZQ'
+});
+
 
 // Rutas estáticas
 app.use(express.static('./static'));

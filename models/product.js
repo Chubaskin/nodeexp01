@@ -5,6 +5,7 @@ let Producto = new Schema({
   nombre : String,
   precio : Number,
   descripcion: String,
+  imagen: String,
   fecha: Date
 })
 
