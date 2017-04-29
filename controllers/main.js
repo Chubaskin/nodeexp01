@@ -9,7 +9,6 @@ exports.init = (req, resp) => {
       resp.render('index', {producto : respuesta});
     }
   });
-
 }
 
 exports.admin = (req, resp) => {
@@ -24,6 +23,7 @@ exports.create = (req, resp) => {
         nombre: req.fields.name,
         precio: req.fields.price,
         descripcion: req.fields.description,
+        imagen: req.fields.fileimage,
         fecha: new Date()
       })  // Producto
 
@@ -37,6 +37,5 @@ exports.create = (req, resp) => {
       })
 
   });
-
 
 }
