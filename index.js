@@ -3,6 +3,7 @@ const app = express();
 const Rutas = require('./routes/rutas');
 const bodyParser = require('body-parser');
 const jade = require('jade');
+const mongoose = require('mongoose');
 
 let port = process.env.PORT || 3000;
 
@@ -21,6 +22,11 @@ app.use(express.static('./static'));
 // Esta línea tiene que ir al final para tomar las configuraciones
 app.use('/', Rutas);
 // app.use('/myapp', Rutas);
+
+mongoose.connect('mongodb://admin:123Momia@ds062339.mlab.com:62339/tallernode', err => {
+  if (err)  console.log(err)
+  else console.log('Conectado a la BD' );
+});
 
 app.listen(port, err => {
   if (err)  console.log(err)
