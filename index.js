@@ -15,8 +15,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 // "set" cambia la configuracion global de express
 // "use" indica módulos externos a usar
 
-// Esta línea tiene que ir al final
+// Rutas estáticas
+app.use(express.static('./static'));
+
+// Esta línea tiene que ir al final para tomar las configuraciones
 app.use('/', Rutas);
+// app.use('/myapp', Rutas);
 
 app.listen(port, err => {
   if (err)  console.log(err)

@@ -2,7 +2,52 @@ doctype
 html
   head
     title Mi primera pagina en node
-    link(href='http://stackoverflow.com/questions/29509814/how-to-install-jade-language-support-in-atom')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel="stylesheet")
+    link(href='./css/style.css' rel="stylesheet")
   
   body
-    h1.text-center hola desde Jade
+    nav.menu
+      ul
+        li 
+          a Inicio
+        li 
+          a Productos
+        li 
+          a Contacto
+        li 
+          a About
+      
+    header
+      .container-fluid
+        .row
+          .col-xs-12.col-md-12
+            img.img-responsive(src="/img/profile.png")
+            h1 Bootstrap
+            hr
+            h3 Web Developer - Diseñador Gráfico
+
+    section.about
+      .container-fluid
+        .row
+          .col-xs-12.col-md-12
+            h2 About
+            hr
+            p Prueba de trabajo
+            p Prueba 2
+
+    section.form
+      .container-fluid
+        .row
+        .col-xs-12.col-md-12
+          h2.mora Contacto
+          hr.hrMora
+        .col-xs-12.col-md-12
+            form
+              label Nombre
+              input.form-control(type=text name="nombre" placeholder="Ingresa tu Nombre")
+              label Correo
+              input.form-control(type=text name="correo" placeholder="Ingresa tu Correo")
+              label Mensaje
+              textarea.form-control(type=text name="mensaje" placeholder="Ingresa tu Mensaje")
+              input.form-control(type="submit" value="Enviar" class="btn-magda")
+              
